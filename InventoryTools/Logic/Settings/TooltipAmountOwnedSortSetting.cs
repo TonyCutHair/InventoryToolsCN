@@ -23,10 +23,10 @@ public class TooltipAmountOwnedSortSetting : ChoiceSetting<TooltipAmountOwnedSor
     }
 
     public override string Key { get; set; } = "TooltipAmountOwnedSort";
-    public override string Name { get; set; } = "Add Item Locations (Order)";
+    public override string Name { get; set; } = "显示物品位置（排序）";
 
     public override string HelpText { get; set; } =
-        "How should the items displayed in the tooltip that you own be ordered? None is included if you find the sorting to be non-performant.";
+        "您拥有的在工具提示中显示的物品应该如何排序？如果您发现排序性能不佳，可以选择\"无\"。";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.AddItemLocations;

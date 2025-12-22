@@ -22,10 +22,10 @@ public class AddTitleMenuButtonSetting : BooleanSetting
     }
 
     public override string Key { get; set; } = "AddTitleMenuButton";
-    public override string Name { get; set; } = "Add Title Menu Button?";
+    public override string Name { get; set; } = "添加标题菜单按钮？";
 
     public override string HelpText { get; set; } =
-        "Adds a button to the title menu along side the dalamud menu items allowing you to open Allagan Tools while not logged in.";
+        "在标题菜单中添加一个按钮，与Dalamud菜单项一起，允许您在未登录时打开物品助手。";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.TitleMenuButtons;
     public override SettingSubCategory SettingSubCategory => SettingSubCategory.General;

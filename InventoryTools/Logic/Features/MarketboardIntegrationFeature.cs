@@ -15,7 +15,7 @@ public class MarketboardIntegrationFeature : Feature
         settings)
     {
     }
-    public override string Name { get; } = "Marketboard";
+    public override string Name { get; } = "交易上梯整合";
     public override string Description { get; } =
-        "Configure the marketboard integration. This downloads data from Universalis on a set timer, allowing you to filter against the minimum and average prices of items across multiple servers.";
+        "配置交易上梯整合。此功能会按设定时间执行器下载 Universalis 数据，使您能够根据多个游戏世界的物品最低价格和平均价格进行筛选。";
 }

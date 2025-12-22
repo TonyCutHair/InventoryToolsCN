@@ -21,8 +21,8 @@ public class ContextMenuFeature : Feature
     {
     }
 
-    public override string Name { get; } = "Context Menus";
+    public override string Name { get; } = "右键菜单";
 
     public override string Description { get; } =
-        "Adds new items to the right click/context menu for items in the game. ";
+        "为游戏中物品的右键菜单添加新选项。";
 }

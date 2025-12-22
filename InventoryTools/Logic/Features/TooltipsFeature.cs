@@ -19,7 +19,7 @@ public class TooltipsFeature : Feature
     {
     }
 
-    public override string Name { get; } = "Tooltips";
+    public override string Name { get; } = "工具提示";
     public override string Description { get; } =
-        "Allagan Tools can add extra information to the tooltips for items. Select which you would like to show in the tooltip. For further configuration including the ability to change each tooltips colour and settings specific to each tooltip please open the configuration window.";
+        "库存工具可以为物品工具提示添加额外信息。选择您想要在工具提示中显示的内容。如需进一步配置（包括更改每个工具提示的颜色和特定于每个工具提示的设置），请打开配置窗口。";
 }

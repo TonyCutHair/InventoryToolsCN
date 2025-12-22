@@ -19,12 +19,12 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "TooltipDisplayMBMinimum";
-        public override string Name { get; set; } = "Add Market Minimum NQ/HQ Price?";
+        public override string Name { get; set; } = "显示交易板最低价格（NQ/HQ）？";
 
-        public override string WizardName { get; } = "Market Price";
+        public override string WizardName { get; } = "交易板价格";
 
         public override string HelpText { get; set; } =
-            "When hovering an item, should the tooltip contain the minimum market price for both NQ and HQ. Please make sure 'Automatically download prices' is enabled.";
+            "悬停物品时，工具提示是否应该包含NQ和HQ的最低交易板价格？请确保已启用\"自动下载价格\"。";
 
         public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
         public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.MarketPricing;

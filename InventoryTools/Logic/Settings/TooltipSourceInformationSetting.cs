@@ -33,11 +33,11 @@ public enum TooltipSourceModifier
 
 public class TooltipSourceInformationEnabledSetting : GenericBooleanSetting
 {
-    public TooltipSourceInformationEnabledSetting(ILogger<TooltipSourceInformationEnabledSetting> logger, ImGuiService imGuiService) : base("TooltipSourceInformationEnabled", "Source Information Enabled", "Should source information be shown in the tooltip? For example that an item can be sourced via crafting, shops, monsters etc", false, SettingCategory.ToolTips, SettingSubCategory.SourceInformation, "1.11.0.11", logger, imGuiService)
+    public TooltipSourceInformationEnabledSetting(ILogger<TooltipSourceInformationEnabledSetting> logger, ImGuiService imGuiService) : base("TooltipSourceInformationEnabled", "显示来源信息", "是否应该在工具提示中显示来源信息？例如物品可以通过制作、商店、怪物等获得", false, SettingCategory.ToolTips, SettingSubCategory.SourceInformation, "1.11.0.11", logger, imGuiService)
     {
     }
 
-    public override string WizardName { get; } = "Show Source Information";
+    public override string WizardName { get; } = "显示来源信息";
     public override uint? Order { get; } = 0;
 }
 
@@ -273,12 +273,12 @@ public class TooltipSourceInformationSetting : Setting<Dictionary<ItemInfoType, 
     }
 
     public override string Key { get; set; } = "TooltipSourceInformation";
-    public override string Name { get; set; } = "Source Information Configuration";
+    public override string Name { get; set; } = "来源信息配置";
 
     public override uint? Order { get; } = 3;
 
     public override string HelpText { get; set; } =
-        "If the source information tooltip is enabled, how should the various sources be ordered/displayed/etc?";
+        "如果启用来源信息工具提示，各种来源应该如何排序/显示等？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.SourceInformation;

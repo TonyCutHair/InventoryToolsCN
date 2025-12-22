@@ -224,7 +224,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                _chatUtilities.Print("There are no new settings available to configure.");
+                _chatUtilities.Print("没有可配置的新设置。");
             }
         }
 
@@ -285,10 +285,10 @@ namespace InventoryTools.Ui
                 _popupMenus[configuration] = new PopupMenu("fm" + configuration.Key, PopupMenu.PopupMenuButtons.Right,
                     new List<PopupMenu.IPopupMenuItem>()
                     {
-                        new PopupMenu.PopupMenuItemSelectableAskName("Duplicate", "df_" + configuration.Key, configuration.Name, DuplicateFilter, "Duplicate the filter."),
-                        new PopupMenu.PopupMenuItemSelectable("Move Up", "mu_" + configuration.Key, MoveFilterUp, "Move the filter up."),
-                        new PopupMenu.PopupMenuItemSelectable("Move Down", "md_" + configuration.Key, MoveFilterDown, "Move the filter down."),
-                        new PopupMenu.PopupMenuItemSelectableConfirm("Remove", "rf_" + configuration.Key, "Are you sure you want to remove this filter?", RemoveFilter, "Remove the filter."),
+                        new PopupMenu.PopupMenuItemSelectableAskName("复制", "df_" + configuration.Key, configuration.Name, DuplicateFilter, "复制该清单。"),
+                        new PopupMenu.PopupMenuItemSelectable("上移", "mu_" + configuration.Key, MoveFilterUp, "将清单上移。"),
+                        new PopupMenu.PopupMenuItemSelectable("下移", "md_" + configuration.Key, MoveFilterDown, "将清单下移。"),
+                        new PopupMenu.PopupMenuItemSelectableConfirm("删除", "rf_" + configuration.Key, "确定要删除该清单吗？", RemoveFilter, "删除该清单。"),
                     }
                 );
             }

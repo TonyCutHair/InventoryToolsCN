@@ -18,10 +18,10 @@ public class TooltipHeaderLinesSetting : IntegerSetting
     }
 
     public override string Key { get; set; } = "TooltipDisplayHeader";
-    public override string Name { get; set; } = "Header New Lines";
+    public override string Name { get; set; } = "标题新行";
 
     public override string HelpText { get; set; } =
-        "How many new lines should be added above any tooltip modifications made by this plugin?";
+        "在插件对工具提示所做的任何修改上方应该添加多少行新行？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.Visuals;

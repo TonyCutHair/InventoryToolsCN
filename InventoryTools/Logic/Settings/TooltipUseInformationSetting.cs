@@ -18,10 +18,10 @@ namespace InventoryTools.Logic.Settings;
 
 public class TooltipUseInformationEnabledSetting : GenericBooleanSetting
 {
-    public TooltipUseInformationEnabledSetting(ILogger<TooltipUseInformationEnabledSetting> logger, ImGuiService imGuiService) : base("TooltipUseInformationEnabled", "Use Information Enabled", "Should use information be shown in the tooltip? For example, the item is used in a recipe or as currency at a shop, etc", false, SettingCategory.ToolTips, SettingSubCategory.UseInformation, "1.11.0.11", logger, imGuiService)
+    public TooltipUseInformationEnabledSetting(ILogger<TooltipUseInformationEnabledSetting> logger, ImGuiService imGuiService) : base("TooltipUseInformationEnabled", "显示用途信息", "是否应该在工具提示中显示用途信息？例如，物品用于配方或作为商店货币等", false, SettingCategory.ToolTips, SettingSubCategory.UseInformation, "1.11.0.11", logger, imGuiService)
     {
     }
-    public override string WizardName { get; } = "Show Use Information";
+    public override string WizardName { get; } = "显示用途信息";
     public override uint? Order { get; } = 0;
 }
 
@@ -257,12 +257,12 @@ public class TooltipUseInformationSetting : Setting<Dictionary<ItemInfoType, Too
     }
 
     public override string Key { get; set; } = "TooltipUseInformation";
-    public override string Name { get; set; } = "Use Information Configuration";
+    public override string Name { get; set; } = "用途信息配置";
 
     public override uint? Order { get; } = 3;
 
     public override string HelpText { get; set; } =
-        "If the use information tooltip is enabled, how should the various uses be ordered/displayed/etc?";
+        "如果启用用途信息工具提示，各种用途应该如何排序/显示等？";
 
     public override SettingCategory SettingCategory { get; set; } = SettingCategory.ToolTips;
     public override SettingSubCategory SettingSubCategory { get; } = SettingSubCategory.UseInformation;

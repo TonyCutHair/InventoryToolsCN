@@ -126,55 +126,55 @@ public class ItemLocalizer
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryBody)
         {
-            return "军械库 - 身体";
+            return "兵装库 - 身体";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryEar)
         {
-            return "军械库 - 耳饰";
+            return "兵装库 - 耳饰";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryFeet)
         {
-            return "军械库 - 足部";
+            return "兵装库 - 足部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryHand)
         {
-            return "军械库 - 手部";
+            return "兵装库 - 手部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryHead)
         {
-            return "军械库 - 头部";
+            return "兵装库 - 头部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryLegs)
         {
-            return "军械库 - 腿部";
+            return "兵装库 - 腿部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryMain)
         {
-            return "军械库 - 主手";
+            return "兵装库 - 主手";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryNeck)
         {
-            return "军械库 - 项链";
+            return "兵装库 - 项链";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryOff)
         {
-            return "军械库 - 副手";
+            return "兵装库 - 副手";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryRing)
         {
-            return "军械库 - 戒指";
+            return "兵装库 - 戒指";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryWaist)
         {
-            return "军械库 - 腰部";
+            return "兵装库 - 腰部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryWrist)
         {
-            return "军械库 - 手腕";
+            return "兵装库 - 手腕";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmorySoulCrystal)
         {
-            return "军械库 - 灵魂水晶";
+            return "兵装库 - 灵魂水晶";
         }
         if(inventoryItem.SortedContainer is InventoryType.GearSet0)
         {
@@ -242,7 +242,7 @@ public class ItemLocalizer
         }
         if(inventoryItem.SortedContainer is InventoryType.Currency)
         {
-            return "通货";
+            return "货币";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyGil)
         {
@@ -250,7 +250,7 @@ public class ItemLocalizer
         }
         if(inventoryItem.SortedContainer is InventoryType.RetainerGil)
         {
-            return "通货";
+            return "货币";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyCrystal)
         {
@@ -258,7 +258,7 @@ public class ItemLocalizer
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyCurrency)
         {
-            return "部队 - 通货";
+            return "部队 - 货币";
         }
         if(inventoryItem.SortedContainer is InventoryType.Crystal or InventoryType.RetainerCrystal)
         {

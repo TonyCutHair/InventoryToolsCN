@@ -74,7 +74,7 @@ namespace InventoryTools.Ui
             IComponentContext context, FiltersWindowLayoutSetting layoutSetting, ItemSheet itemSheet,
             FilterConfiguration.Factory filterConfigFactory, IEnumerable<ISampleFilter> sampleFilters,
             IClipboardService clipboardService, PopupService popupService, IKeyState keyState, IFramework framework,
-            IPluginLog pluginLog, HighlightWhenFilter highlightWhenFilter, HighlightWhenSetting highlightWhenSetting) : base(logger, mediator, imGuiService, configuration, "Filters Window")
+            IPluginLog pluginLog, HighlightWhenFilter highlightWhenFilter, HighlightWhenSetting highlightWhenSetting) : base(logger, mediator, imGuiService, configuration, "物品窗口")
         {
             _listService = listService;
             _filterService = filterService;
@@ -105,42 +105,42 @@ namespace InventoryTools.Ui
         public override void Initialize()
         {
             Key = "filters";
-            WindowName = "Items";
+            WindowName = "物品";
             _settingsMenu = new PopupMenu("configMenu", PopupMenu.PopupMenuButtons.All,
                 new List<PopupMenu.IPopupMenuItem>()
                 {
-                    new PopupMenu.PopupMenuItemSelectable("Mob Window", "mobs", OpenMobsWindow,
-                        "Open the mobs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Npcs Window", "npcs", OpenNpcsWindow,
-                        "Open the npcs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Duties Window", "duties", OpenDutiesWindow,
-                        "Open the duties window."),
-                    new PopupMenu.PopupMenuItemSelectable("Airships Window", "airships", OpenAirshipsWindow,
-                        "Open the airships window."),
-                    new PopupMenu.PopupMenuItemSelectable("Submarines Window", "submarines", OpenSubmarinesWindow,
-                        "Open the submarines window."),
-                    new PopupMenu.PopupMenuItemSelectable("Retainer Ventures Window", "ventures",
-                        OpenRetainerVenturesWindow, "Open the retainer ventures window."),
+                    new PopupMenu.PopupMenuItemSelectable("魔物窗口", "mobs", OpenMobsWindow,
+                        "打开魔物窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("NPC窗口", "npcs", OpenNpcsWindow,
+                        "打开NPC窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("职责窗口", "duties", OpenDutiesWindow,
+                        "打开职责窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("飞空艇窗口", "airships", OpenAirshipsWindow,
+                        "打开飞空艇窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("潜水艇窗口", "submarines", OpenSubmarinesWindow,
+                        "打开潜水艇窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("雇员探险窗口", "ventures",
+                        OpenRetainerVenturesWindow, "打开雇员探险窗口。"),
                     new PopupMenu.PopupMenuItemSeparator(),
-                    new PopupMenu.PopupMenuItemSelectable("Help", "help", OpenHelpWindow, "Open the help window."),
+                    new PopupMenu.PopupMenuItemSelectable("帮助", "help", OpenHelpWindow, "打开帮助窗口。"),
                 });
 
             _tabLayout = Utils.GenerateRandomId();
             _addFilterMenu = new PopupMenu("addFilter", PopupMenu.PopupMenuButtons.LeftRight,
                 new List<PopupMenu.IPopupMenuItem>()
                 {
-                    new PopupMenu.PopupMenuItemSelectableAskName("Search List", "adf1", "New Search List",
+                    new PopupMenu.PopupMenuItemSelectableAskName("搜索清单", "adf1", "新建搜索清单",
                         AddSearchFilter,
-                        "This will create a new list that let's you search for specific items within your characters and retainers inventories."),
-                    new PopupMenu.PopupMenuItemSelectableAskName("Sort List", "af2", "New Sort List", AddSortFilter,
-                        "This will create a new list that let's you search for specific items within your characters and retainers inventories then determine where they should be moved to."),
-                    new PopupMenu.PopupMenuItemSelectableAskName("Game Item List", "af3", "New Game Item List",
-                        AddGameItemFilter, "This will create a list that lets you search for all items in the game."),
-                    new PopupMenu.PopupMenuItemSelectableAskName("History List", "af4", "New History List",
+                        "创建一个新清单，用于在角色与雇员的库存中搜索指定物品。"),
+                    new PopupMenu.PopupMenuItemSelectableAskName("排序清单", "af2", "新建排序清单", AddSortFilter,
+                        "创建一个新清单，在角色与雇员库存中搜索指定物品并确定其整理去向。"),
+                    new PopupMenu.PopupMenuItemSelectableAskName("游戏物品清单", "af3", "新建游戏物品清单",
+                        AddGameItemFilter, "创建一个清单，用于搜索游戏内所有物品。"),
+                    new PopupMenu.PopupMenuItemSelectableAskName("历史清单", "af4", "新建历史清单",
                         AddHistoryFilter,
-                        "This will create a list that lets you view historical data of how your inventory has changed."),
-                    new PopupMenu.PopupMenuItemSelectableAskName("Curated List", "af5", "New Curated List",
-                        AddCuratedFilter, "This will create a list that lets you add individual items to it manually."),
+                        "创建一个清单，用于查看库存变化的历史数据。"),
+                    new PopupMenu.PopupMenuItemSelectableAskName("精选清单", "af5", "新建精选清单",
+                        AddCuratedFilter, "创建一个清单，允许手动添加单个物品。"),
                 });
             _menuWindows = _context.Resolve<IEnumerable<IMenuWindow>>().OrderBy(c => c.GenericName).Where(c => c.GetType() != this.GetType());
             MediatorService.Subscribe<ListInvalidatedMessage>(this, _ => Invalidate());
@@ -169,7 +169,7 @@ namespace InventoryTools.Ui
         public override Vector2? MinSize { get; } = new(200, 200);
         public override Vector2? DefaultSize { get; } = new(600, 600);
         public override string GenericKey => "filters";
-        public override string GenericName => "Filters";
+        public override string GenericName => "物品";
         public override bool DestroyOnClose => false;
         private HoverButton _editIcon = new();
         private HoverButton _settingsIcon = new();
@@ -543,26 +543,26 @@ namespace InventoryTools.Ui
             {
                 if (menuBar)
                 {
-                    using (var menu = ImRaii.Menu("File"))
+                    using (var menu = ImRaii.Menu("文件"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Configuration"))
+                            if (ImGui.MenuItem("配置"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWindow)));
                             }
 
-                            if (ImGui.MenuItem("Changelog"))
+                            if (ImGui.MenuItem("更新日志"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(ChangelogWindow)));
                             }
 
-                            if (ImGui.MenuItem("Help"))
+                            if (ImGui.MenuItem("帮助"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow)));
                             }
 
-                            if (ImGui.MenuItem("Enable Verbose Logging", "",
+                            if (ImGui.MenuItem("启用详细日志", "",
                                     this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose))
                             {
                                 if (this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose)
@@ -575,50 +575,50 @@ namespace InventoryTools.Ui
                                 }
                             }
 
-                            if (ImGui.MenuItem("Report a Issue"))
+                            if (ImGui.MenuItem("报告问题"))
                             {
                                 "https://github.com/Critical-Impact/InventoryTools".OpenBrowser();
                             }
 
-                            if (ImGui.MenuItem("Ko-Fi"))
+                            if (ImGui.MenuItem("赞助 Ko-Fi"))
                             {
                                 "https://ko-fi.com/critical_impact".OpenBrowser();
                             }
 
-                            if (ImGui.MenuItem("Close"))
+                            if (ImGui.MenuItem("关闭"))
                             {
                                 this.IsOpen = false;
                             }
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Edit"))
+                    using (var menu = ImRaii.Menu("编辑"))
                     {
                         if (menu)
                         {
                             if (this.SelectedConfiguration != null)
                             {
-                                if (ImGui.MenuItem("Clear Search"))
+                                if (ImGui.MenuItem("清除搜索"))
                                 {
                                     _tableService.GetListTable(SelectedConfiguration).ClearFilters();
                                 }
 
                                 ImGui.Separator();
 
-                                using (var copyListContentsMenu = ImRaii.Menu("Copy List Contents"))
+                                using (var copyListContentsMenu = ImRaii.Menu("复制清单内容"))
                                 {
                                     if (copyListContentsMenu)
                                     {
-                                        if (ImGui.MenuItem("Teamcraft Format"))
+                                        if (ImGui.MenuItem("Teamcraft 格式"))
                                         {
                                             var searchResults = _tableService.GetListTable(SelectedConfiguration)
                                                 .SearchResults;
                                             var tcString = _importExportService.ToTCString(searchResults);
                                             _clipboardService.CopyToClipboard(tcString);
-                                            _chatUtilities.Print("The list's contents were copied to your clipboard.");
+                                            _chatUtilities.Print("清单内容已复制到剪贴板。");
                                         }
 
-                                        if (ImGui.MenuItem("JSON Format"))
+                                        if (ImGui.MenuItem("JSON 格式"))
                                         {
                                             var itemTable = _tableService.GetListTable(SelectedConfiguration);
                                             _clipboardService.CopyToClipboard(itemTable.ExportToJson());
@@ -627,7 +627,7 @@ namespace InventoryTools.Ui
                                 }
 
                                 if (SelectedConfiguration.FilterType == FilterType.CuratedList &&
-                                    ImGui.MenuItem("Paste List Contents"))
+                                    ImGui.MenuItem("粘贴清单内容"))
                                 {
                                     var importedList =
                                         _importExportService.FromTCString(_clipboardService.PasteFromClipboard(),
@@ -635,20 +635,20 @@ namespace InventoryTools.Ui
                                     if (importedList == null)
                                     {
                                         _chatUtilities.PrintError(
-                                            "The contents of your clipboard could not be parsed.");
+                                            "无法解析剪贴板内容。");
                                     }
                                     else
                                     {
-                                        _chatUtilities.Print("The contents of your clipboard were imported.");
+                                        _chatUtilities.Print("剪贴板内容已导入。");
                                         SelectedConfiguration.AddItemsToList(importedList);
                                     }
                                 }
 
                                 if (SelectedConfiguration.FilterType == FilterType.CuratedList &&
-                                    ImGui.MenuItem("Clear List"))
+                                    ImGui.MenuItem("清空清单"))
                                 {
                                     _popupService.AddPopup(new ConfirmPopup(GetType(), "craftListDelete",
-                                        "Are you sure you want to clear this curated list?",
+                                        "确定要清空该精选清单吗？",
                                         result =>
                                         {
                                             if (result)
@@ -659,7 +659,7 @@ namespace InventoryTools.Ui
                                 }
 
                                 ImGui.Separator();
-                                using (var addCraftListMenu = ImRaii.Menu("Add to Craft List"))
+                                using (var addCraftListMenu = ImRaii.Menu("添加到制作清单"))
                                 {
                                     if (addCraftListMenu)
                                     {
@@ -693,10 +693,10 @@ namespace InventoryTools.Ui
                                             ImGui.Separator();
                                         }
 
-                                        if (ImGui.MenuItem("New Craft List"))
+                                        if (ImGui.MenuItem("新建制作清单"))
                                         {
                                             _popupService.AddPopup(new NamePopup(typeof(FiltersWindow), "newCraftList",
-                                                "New Craft List",
+                                                "新建制作清单",
                                                 result =>
                                                 {
                                                     if (result.Item1)
@@ -721,10 +721,10 @@ namespace InventoryTools.Ui
                                                 }));
                                         }
 
-                                        if (ImGui.MenuItem("New Craft List (Ephemeral)"))
+                                        if (ImGui.MenuItem("新建制作清单（临时）"))
                                         {
                                             _popupService.AddPopup(new NamePopup(typeof(FiltersWindow), "newCraftList",
-                                                "New Craft List",
+                                                "新建制作清单",
                                                 result =>
                                                 {
                                                     if (result.Item1)
@@ -752,7 +752,7 @@ namespace InventoryTools.Ui
                                     }
                                 }
 
-                                using (var curatedListMenu = ImRaii.Menu("Add to Curated List"))
+                                using (var curatedListMenu = ImRaii.Menu("添加到精选清单"))
                                 {
                                     if (curatedListMenu)
                                     {
@@ -780,11 +780,11 @@ namespace InventoryTools.Ui
                                             ImGui.Separator();
                                         }
 
-                                        if (ImGui.MenuItem("New Curated List"))
+                                        if (ImGui.MenuItem("新建精选清单"))
                                         {
                                             _popupService.AddPopup(new NamePopup(typeof(FiltersWindow),
                                                 "newCuratedList",
-                                                "New Curated List",
+                                                "新建精选清单",
                                                 result =>
                                                 {
                                                     if (result.Item1)
@@ -815,23 +815,23 @@ namespace InventoryTools.Ui
                     }
 
 
-                    using (var menu = ImRaii.Menu("View"))
+                    using (var menu = ImRaii.Menu("视图"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Tabs", "",
+                            if (ImGui.MenuItem("标签页", "",
                                     _layoutSetting.CurrentValue(_configuration) == WindowLayout.Tabs))
                             {
                                 _layoutSetting.UpdateFilterConfiguration(_configuration, WindowLayout.Tabs);
                             }
 
-                            if (ImGui.MenuItem("Sidebar", "",
+                            if (ImGui.MenuItem("侧边栏", "",
                                     _layoutSetting.CurrentValue(_configuration) == WindowLayout.Sidebar))
                             {
                                 _layoutSetting.UpdateFilterConfiguration(_configuration, WindowLayout.Sidebar);
                             }
 
-                            if (ImGui.MenuItem("Single", "",
+                            if (ImGui.MenuItem("单列", "",
                                     _layoutSetting.CurrentValue(_configuration) == WindowLayout.Single))
                             {
                                 _layoutSetting.UpdateFilterConfiguration(_configuration, WindowLayout.Single);
@@ -839,21 +839,21 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    if (ImGui.MenuItem("Export"))
+                    if (ImGui.MenuItem("导出"))
                     {
                         if (SelectedConfiguration != null)
                         {
                             var itemTable = _tableService.GetListTable(SelectedConfiguration);
-                            _fileDialogManager.SaveFileDialog("Save to csv", "*.csv", "export.csv", ".csv",
+                            _fileDialogManager.SaveFileDialog("保存为 CSV", "*.csv", "export.csv", ".csv",
                                 (b, s) => { SaveCallback(itemTable, b, s); }, null, true);
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Market"))
+                    using (var menu = ImRaii.Menu("市场"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Refresh All Prices"))
+                            if (ImGui.MenuItem("刷新全部价格"))
                             {
                                 var activeCharacter = _characterMonitor.ActiveCharacter;
                                 if (activeCharacter != null && SelectedConfiguration != null)
@@ -868,15 +868,15 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Lists"))
+                    using (var menu = ImRaii.Menu("清单"))
                     {
                         if (menu)
                         {
-                            using (var addMenu = ImRaii.Menu("Add"))
+                            using (var addMenu = ImRaii.Menu("添加"))
                             {
                                 if (addMenu)
                                 {
-                                    if (ImGui.MenuItem("Search List"))
+                                    if (ImGui.MenuItem("搜索清单"))
                                     {
                                         _popupService.AddPopup(new NamePopup(GetType(), "addSearchList", "", result =>
                                         {
@@ -887,7 +887,7 @@ namespace InventoryTools.Ui
                                         }));
                                     }
 
-                                    if (ImGui.MenuItem("Sort List"))
+                                    if (ImGui.MenuItem("排序清单"))
                                     {
                                         _popupService.AddPopup(new NamePopup(GetType(), "addSortList", "", result =>
                                         {
@@ -898,7 +898,7 @@ namespace InventoryTools.Ui
                                         }));
                                     }
 
-                                    if (ImGui.MenuItem("Game Item List"))
+                                    if (ImGui.MenuItem("游戏物品清单"))
                                     {
                                         _popupService.AddPopup(new NamePopup(GetType(), "addGameItemList", "", result =>
                                         {
@@ -909,7 +909,7 @@ namespace InventoryTools.Ui
                                         }));
                                     }
 
-                                    if (ImGui.MenuItem("Curated List"))
+                                    if (ImGui.MenuItem("精选清单"))
                                     {
                                         _popupService.AddPopup(new NamePopup(GetType(), "addCuratedList", "", result =>
                                         {
@@ -920,7 +920,7 @@ namespace InventoryTools.Ui
                                         }));
                                     }
 
-                                    if (ImGui.MenuItem("History List"))
+                                    if (ImGui.MenuItem("历史清单"))
                                     {
                                         _popupService.AddPopup(new NamePopup(GetType(), "addHistoryList", "", result =>
                                         {
@@ -933,7 +933,7 @@ namespace InventoryTools.Ui
                                 }
                             }
 
-                            using (var addMenu = ImRaii.Menu("Add (Preconfigured)"))
+                            using (var addMenu = ImRaii.Menu("添加（预设）"))
                             {
                                 if (addMenu)
                                 {
@@ -963,30 +963,30 @@ namespace InventoryTools.Ui
                                 }
                             }
 
-                            using (var addMenu = ImRaii.Menu("Import/Export"))
+                            using (var addMenu = ImRaii.Menu("导入/导出"))
                             {
                                 if (addMenu)
                                 {
-                                    if (ImGui.MenuItem("Export Current List (Share Code)"))
+                                    if (ImGui.MenuItem("导出当前清单（分享码）"))
                                     {
                                         if (SelectedConfiguration != null)
                                         {
                                             var base64 = _importExportService.ToBase64(SelectedConfiguration);
                                             _clipboardService.CopyToClipboard(base64);
-                                            _chatUtilities.PrintClipboardMessage("[Export] ", "Filter Configuration");
+                                            _chatUtilities.PrintClipboardMessage("[导出] ", "筛选配置");
                                         }
                                     }
 
-                                    if (ImGui.MenuItem("Import List (Share Code)"))
+                                    if (ImGui.MenuItem("导入清单（分享码）"))
                                     {
-                                        _popupService.AddPopup(new MultiLineTextPopup(GetType(), "addSearchList", "Please enter a valid share code for a list below and then hit ok to import it.", result =>
+                                        _popupService.AddPopup(new MultiLineTextPopup(GetType(), "addSearchList", "请输入有效的清单分享码，然后点击确定以导入。", result =>
                                         {
                                             if (result.Item1)
                                             {
                                                 var importData = result.Item2;
                                                 if (importData == "")
                                                 {
-                                                    _chatUtilities.PrintClipboardMessage("[Import] ", "You must paste a list generated via the export function or that was shared with you before pressing ok.");
+                                                    _chatUtilities.PrintClipboardMessage("[导入] ", "按下确定前需粘贴通过导出功能生成或他人分享给你的清单字符串。");
                                                 }
                                                 else
                                                 {
@@ -995,17 +995,17 @@ namespace InventoryTools.Ui
                                                         if (_importExportService.FromBase64(importData,
                                                                 out var newList))
                                                         {
-                                                            _chatUtilities.PrintClipboardMessage("[Import] ", "The list was imported successfully.");
+                                                            _chatUtilities.PrintClipboardMessage("[导入] ", "清单导入成功。");
                                                             _listService.AddList(newList);
                                                         }
                                                         else
                                                         {
-                                                            _chatUtilities.PrintClipboardMessage("[Import] ", "Invalid data detected in import string. Please make sure this string is valid.");
+                                                            _chatUtilities.PrintClipboardMessage("[导入] ", "导入字符串包含无效数据，请确保该字符串有效。");
                                                         }
                                                     }
                                                     catch (ListImportVersionException e)
                                                     {
-                                                        _chatUtilities.PrintClipboardMessage("[Import] ", $"This list is no longer valid. It's version is {(e.ImportingVersion?.ToString() ?? "0")} and it's required version is {e.RequiredVersion}.");
+                                                        _chatUtilities.PrintClipboardMessage("[导入] ", $"该清单已不再有效。其版本为 {(e.ImportingVersion?.ToString() ?? "0")}，所需版本为 {e.RequiredVersion}。");
                                                     }
                                                 }
                                             }

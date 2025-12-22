@@ -87,7 +87,7 @@ public class ShopHighlighting : IDisposable
                     }
                 }
 
-                if (ImGui.InputText("Item", ref itemIdString, 128))
+                if (ImGui.InputText("物品ID", ref itemIdString, 128))
                 {
                     if (uint.TryParse(itemIdString, out itemId))
                     {
@@ -95,14 +95,14 @@ public class ShopHighlighting : IDisposable
                     }
                     itemIdString = itemId.ToString();
                 }
-                if (ImGui.Button("Add Item"))
+                if (ImGui.Button("添加物品"))
                 {
                     if (uint.TryParse(itemIdString, out itemId))
                     {
                         highlightedItems.Add(itemId);
                     }
                 }
-                if (ImGui.Button("Remove Item"))
+                if (ImGui.Button("移除物品"))
                 {
                     if (uint.TryParse(itemIdString, out itemId))
                     {

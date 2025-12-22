@@ -33,7 +33,7 @@ namespace InventoryTools.Ui
             IClipboardService clipboardService,
             ItemInfoCache itemInfoCache,
             ENpcResidentSheet eNpcResidentSheet,
-            string name = "NPC Window") : base(logger,
+            string name = "NPC窗口") : base(logger,
             mediator,
             imGuiService,
             configuration,
@@ -56,7 +56,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                WindowName = "Invalid NPC";
+                WindowName = "无效 NPC";
                 Key = "enpc_unknown";
             }
         }
@@ -65,7 +65,7 @@ namespace InventoryTools.Ui
         private uint _eNpcId;
         private ENpcResidentRow? ENpcResidentRow => _eNpcResidentSheet.GetRowOrDefault(_eNpcId);
         public List<IShop>? Shops;
-        public override string GenericName => "Npcs";
+        public override string GenericName => "NPC";
         public override bool DestroyOnClose => true;
         public override void Draw()
         {

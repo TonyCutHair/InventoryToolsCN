@@ -38,7 +38,7 @@ namespace InventoryTools.Ui
             ItemInfoCache itemInfoCache,
             BNpcNameSheet bNpcNameSheet,
             ItemSheet itemSheet,
-            string name = "Duty Window") : base(logger,
+            string name = "副本窗口") : base(logger,
             mediator,
             imGuiService,
             configuration,
@@ -85,7 +85,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                WindowName = "Invalid Duty";
+                WindowName = "无效副本";
                 Key = "cfcid_unknown";
                 DungeonChestItems = new HashSet<uint>();
             }

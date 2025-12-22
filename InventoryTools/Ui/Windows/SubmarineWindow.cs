@@ -27,7 +27,7 @@ namespace InventoryTools.Ui
             InventoryToolsConfiguration configuration,
             SubmarineExplorationSheet submarineExplorationSheet,
             ItemSheet itemSheet,
-            string name = "Submarine Window") : base(logger,
+            string name = "潜水艇窗口") : base(logger,
             mediator,
             imGuiService,
             configuration,
@@ -48,7 +48,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                WindowName = "Invalid Submarine Exploration";
+                WindowName = "无效潜水艇探索";
                 Key = "sepid_invalid";
                 _drops = new List<ItemRow>();
             }
@@ -59,7 +59,7 @@ namespace InventoryTools.Ui
         private SubmarineExplorationRow? SubmarineExploration => _submarineExplorationSheet.GetRowOrDefault(_submarineExplorationPointId);
 
         public override string GenericKey { get; } = "submarine";
-        public override string GenericName { get; } = "Submarines";
+        public override string GenericName { get; } = "潜水艇";
         public override bool DestroyOnClose => true;
         public override void Draw()
         {

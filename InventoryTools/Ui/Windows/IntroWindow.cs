@@ -12,7 +12,7 @@ namespace InventoryTools.Ui
 {
     public class IntroWindow : GenericWindow
     {
-        public IntroWindow(ILogger<IntroWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, string name = "Intro Window") : base(logger, mediator, imGuiService, configuration, name)
+        public IntroWindow(ILogger<IntroWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, string name = "引导窗口") : base(logger, mediator, imGuiService, configuration, name)
         {
         }
         public override void Initialize()
@@ -30,7 +30,7 @@ namespace InventoryTools.Ui
 
         public override FilterConfiguration? SelectedConfiguration => null;
         public override string GenericKey { get; } = "intro";
-        public override string GenericName { get; } = "Intro";
+        public override string GenericName { get; } = "引导";
         public override bool DestroyOnClose => true;
 
         public override void Draw()

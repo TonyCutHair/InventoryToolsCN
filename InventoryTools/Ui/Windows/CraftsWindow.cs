@@ -137,20 +137,20 @@ namespace InventoryTools.Ui
             _settingsMenu = new PopupMenu("configMenu", PopupMenu.PopupMenuButtons.All,
                 new List<PopupMenu.IPopupMenuItem>()
                 {
-                    new PopupMenu.PopupMenuItemSelectable("Mob Window", "mobs", OpenMobsWindow,
-                        "Open the mobs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Npcs Window", "npcs", OpenNpcsWindow,
-                        "Open the npcs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Duties Window", "duties", OpenDutiesWindow,
-                        "Open the duties window."),
-                    new PopupMenu.PopupMenuItemSelectable("Airships Window", "airships", OpenAirshipsWindow,
-                        "Open the airships window."),
-                    new PopupMenu.PopupMenuItemSelectable("Submarines Window", "submarines", OpenSubmarinesWindow,
-                        "Open the submarines window."),
+                    new PopupMenu.PopupMenuItemSelectable("怪物窗口", "mobs", OpenMobsWindow,
+                        "打开怪物窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("NPC窗口", "npcs", OpenNpcsWindow,
+                        "打开NPC窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("副本窗口", "duties", OpenDutiesWindow,
+                        "打开副本窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("飞空艇窗口", "airships", OpenAirshipsWindow,
+                        "打开飞空艇窗口。"),
+                    new PopupMenu.PopupMenuItemSelectable("潜水艇窗口", "submarines", OpenSubmarinesWindow,
+                        "打开潜水艇窗口。"),
                     new PopupMenu.PopupMenuItemSelectable("Retainer Ventures Window", "ventures",
                         OpenRetainerVenturesWindow, "Open the retainer ventures window."),
                     new PopupMenu.PopupMenuItemSeparator(),
-                    new PopupMenu.PopupMenuItemSelectable("Help", "help", OpenHelpWindow, "Open the help window."),
+                    new PopupMenu.PopupMenuItemSelectable("帮助", "help", OpenHelpWindow, "打开帮助窗口。"),
                 });
             _menuWindows = _context.Resolve<IEnumerable<IMenuWindow>>().OrderBy(c => c.GenericName).Where(c => c.GetType() != this.GetType());
             MediatorService.Subscribe<ListInvalidatedMessage>(this, _ => Invalidate());

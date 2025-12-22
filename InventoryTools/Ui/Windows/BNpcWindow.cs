@@ -29,7 +29,7 @@ namespace InventoryTools.Ui
         private readonly TerritoryTypeSheet _territoryTypeSheet;
         private readonly ItemSheet _itemSheet;
 
-        public BNpcWindow(ILogger<BNpcWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, IChatUtilities chatUtilities, IClipboardService clipboardService, BNpcNameSheet bNpcNameSheet, TerritoryTypeSheet territoryTypeSheet, ItemSheet itemSheet, string name = "Mob Window") : base(logger, mediator, imGuiService, configuration, name)
+        public BNpcWindow(ILogger<BNpcWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, IChatUtilities chatUtilities, IClipboardService clipboardService, BNpcNameSheet bNpcNameSheet, TerritoryTypeSheet territoryTypeSheet, ItemSheet itemSheet, string name = "怪物窗口") : base(logger, mediator, imGuiService, configuration, name)
         {
             _chatUtilities = chatUtilities;
             _clipboardService = clipboardService;
@@ -51,7 +51,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                WindowName = "Unknown Mob";
+                WindowName = "未知怪物";
             }
         }
 
@@ -61,7 +61,7 @@ namespace InventoryTools.Ui
         private List<MobSpawnPosition>? _mobSpawns;
 
         private BNpcNameRow? bNpc => _bNpcNameSheet.GetRowOrDefault(_bNpcId);
-        public override string GenericName => "Mob";
+        public override string GenericName => "怪物";
         public override bool DestroyOnClose => true;
         public override void Draw()
         {

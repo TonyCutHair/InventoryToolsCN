@@ -94,7 +94,7 @@ namespace InventoryTools.Ui
             ItemInfoRenderService itemInfoRenderService, BNpcNameSheet bNpcNameSheet, MapSheet mapSheet, IUnlockTrackerService unlockTrackerService,
             ImGuiTooltipService tooltipService, ImGuiTooltipModeSetting tooltipModeSetting, ItemLocalizer itemLocalizer, TeleporterService teleporterService,
             CraftList.Factory craftListFactory,
-            string name = "Item Window") : base(
+            string name = "物品窗口") : base(
             logger, mediator, imGuiService, configuration, name)
         {
             _marketBoardService = marketBoardService;

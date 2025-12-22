@@ -22,7 +22,7 @@ namespace InventoryTools.Ui
         private readonly AirshipExplorationPointSheet _airshipExplorationPointSheet;
         private readonly ItemSheet _itemSheet;
 
-        public AirshipWindow(ILogger<AirshipWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, AirshipExplorationPointSheet airshipExplorationPointSheet, ItemSheet itemSheet, string name = "Airship Window") : base(logger, mediator, imGuiService, configuration, name)
+        public AirshipWindow(ILogger<AirshipWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, AirshipExplorationPointSheet airshipExplorationPointSheet, ItemSheet itemSheet, string name = "飞空艇窗口") : base(logger, mediator, imGuiService, configuration, name)
         {
             _airshipExplorationPointSheet = airshipExplorationPointSheet;
             _itemSheet = itemSheet;
@@ -40,7 +40,7 @@ namespace InventoryTools.Ui
             else
             {
                 Key = "aepid_unknown";
-                WindowName = "Unknown Airship Point";
+                WindowName = "未知飞空艇点";
                 _drops = new List<ItemRow>();
             }
         }
@@ -52,7 +52,7 @@ namespace InventoryTools.Ui
         private AirshipExplorationPointRow? AirshipExplorationPoint => _airshipExplorationPointSheet.GetRowOrDefault(_airshipExplorationPointId);
 
         public override string GenericKey => "airship";
-        public override string GenericName => "Airship";
+        public override string GenericName => "飞空艇";
         public override bool DestroyOnClose => true;
         public override void Draw()
         {

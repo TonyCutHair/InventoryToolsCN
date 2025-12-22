@@ -15,13 +15,13 @@ namespace InventoryTools.Ui
     {
         private readonly InventoryToolsConfiguration _configuration;
 
-        public HelpWindow(ILogger<HelpWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, string name = "Help Window") : base(logger, mediator, imGuiService, configuration, name)
+        public HelpWindow(ILogger<HelpWindow> logger, MediatorService mediator, ImGuiService imGuiService, InventoryToolsConfiguration configuration, string name = "帮助窗口") : base(logger, mediator, imGuiService, configuration, name)
         {
             _configuration = configuration;
         }
         public override void Initialize()
         {
-            WindowName = "Help";
+            WindowName = "帮助";
             Key = "help";
         }
 
@@ -30,7 +30,7 @@ namespace InventoryTools.Ui
         public override  Vector2? MaxSize { get; } = new Vector2(2000, 2000);
         public override  Vector2? MinSize { get; } = new Vector2(200, 200);
         public override string GenericKey { get; } = "help";
-        public override string GenericName { get; } = "Help";
+        public override string GenericName { get; } = "帮助";
         public override bool DestroyOnClose => true;
 
 
